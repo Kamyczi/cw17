@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         locationManager.requestLocationUpdates(bp, 500, 0.5f, this);
 
 
+
         LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         boolean gpsEnabled = false;
         try {
@@ -138,10 +139,11 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             text_net.setText("No Internet");
             text_net.setTextColor(Color.RED);
         }
+        longitude.setText("Longitude: "+ location.getLongitude());
+        latitude.setText("Longitude: "+ location.getLatitude());
 
         archivalData.setText("Measurement readings:\n\n Longitude: " + location.getLongitude() +"|| Latitude: " + location.getLatitude());
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -186,10 +188,14 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     @Override
     public void onLocationChanged(@NonNull Location location) {
         this.location = location;
-        archivalData.append("Lon: " + location.getLongitude() + " | Lat: " + location.getLatitude() + "\n");
+
+        archivalData.setText("Measurement readings: \n\n Lon: " + location.getLongitude() +
+                " | Lat: " + location.getLatitude());
         setMapToLocation(location);
         Log.d(TAG, "Updated: " + location.getLongitude() + " " + location.getLatitude());
+
     }
+
 
 
     private void sendSMSWithCoordinates() {
