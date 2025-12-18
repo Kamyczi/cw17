@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/send_sms"
+        android:title="Wyślij SMS z koordynatami" />
+
+    <item
+        android:id="@+id/save_screenshot"
+        android:title="Zapisz koordynaty mapy (screenshot)" />
+
+    <item
+        android:id="@+id/share_results"
+        android:title="Udostępnij wyniki" />
+
+</menu>
